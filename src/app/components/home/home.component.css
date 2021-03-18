@@ -15,36 +15,30 @@
     align-items: center;
     text-align: center;
     padding: 5rem 1.5rem;
+    justify-content: center;
   }
   
   /* 'Looking for music?' heading */
   .albums-content h2 {
-    font-size: 2.3rem;
     margin-bottom: 1.5rem;
     text-shadow: 0 0 0.1rem var(--black);
   }
   
   /* 'Start listening to the best new releases' paragraph */
   .albums-content p {
-    font-size: 1.2rem;
     margin-bottom: 2rem;
   }
   
   /* 'Launch web player' button */
   .albums-content button {
-    padding: 1.5rem 4.5rem;
     border-radius: 3rem;
     outline: none;
-    background: var(--white);
-    color: var(--gray3);
-    font-weight: 700;
-    border-color: var(--gray3);
     letter-spacing: 2px;
     cursor: pointer;
     transition: all 0.3s ease;
   }
   
-  .albums-content button:hover {
+  /* .albums-content button:hover {
     background: var(--gray3);
     color: var(--white);
   }
@@ -52,4 +46,4 @@
   .albums-content button:active {
     background: var(--black);
     border-color: var(--black);
-  }
+  } */
