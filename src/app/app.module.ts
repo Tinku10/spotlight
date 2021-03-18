@@ -8,6 +8,8 @@ import { HomeComponent } from './components/home/home.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { RegisterComponent } from './components/register/register.component';
 
+import { AuthModule } from '@auth0/auth0-angular';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +20,11 @@ import { RegisterComponent } from './components/register/register.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AuthModule.forRoot({
+      domain: 'dev-3qx9j9qj.us.auth0.com',
+      clientId: '0b09YEZyX6r8JxdtvZw7Nx3BiHZYcPM0'
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]
