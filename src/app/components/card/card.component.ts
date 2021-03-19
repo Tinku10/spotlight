@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-card',
@@ -7,14 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CardComponent implements OnInit {
 
-  items = [{
-    name: 'hello',
-    release_date: '20 Dec 2020'
-  }];
+@Input() item: any;
 
-  constructor() { }
+  constructor(private _router: Router) {}
 
-  ngOnInit(): void {
+  ngOnInit() {}
+
+  seeDetails(item: any) {
+    let artistId;
+
+    if (item.type === 'artist') {
+      artistId = item.id;
+    } else {
+      artistId = item.artists[0].id;
+    }
+
+    this._router.navigate(['/artist', artistId]);
   }
 
 }
