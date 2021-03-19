@@ -12,6 +12,9 @@ import {RouterModule} from '@angular/router';
 import { AuthModule } from '@auth0/auth0-angular';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { CardComponent } from './components/card/card.component';
+import { NewReleaseContainerComponent } from './components/new-release-container/new-release-container.component';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { GetArtistContainerComponent } from './components/get-artist-container/get-artist-container.component';
 
 @NgModule({
   declarations: [
@@ -21,21 +24,24 @@ import { CardComponent } from './components/card/card.component';
     FooterComponent,
     RegisterComponent,
     DashboardComponent,
-    CardComponent
+    CardComponent,
+    NewReleaseContainerComponent,
+    GetArtistContainerComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     RouterModule.forRoot([
       {path: '', component: HomeComponent},
-      {path: 'dashboard', component: CardComponent}
+      {path: 'dashboard', component: DashboardComponent}
     ]),
     AuthModule.forRoot({
       domain: 'dev-3qx9j9qj.us.auth0.com',
       clientId: '0b09YEZyX6r8JxdtvZw7Nx3BiHZYcPM0'
     }),
   ],
-  providers: [],
+  providers: [HttpClient],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
