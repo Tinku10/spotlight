@@ -1,5 +1,10 @@
-<div class="flex flex-row bg-gray-200 p-4 mt-4 mb-4">
-   <ul *ngFor="let item of artist"> 
-     <app-artist-card [artist]="item"></app-artist-card> 
-   </ul> 
+<div class="bg-gray-200 p-4 mt-4 mb-4 overflow-scroll bg-scroll no-scrollbar">
+  <div class="flex flex-col">
+    <h1 class="font-extrabold text-2xl p-6">Popular Artists</h1>
+    <div class="flex flex-row">
+      <ul *ngFor="let item of artist">
+        <app-artist-card [artist]="item"></app-artist-card>
+      </ul>
+    </div>
+  </div>
 </div>
