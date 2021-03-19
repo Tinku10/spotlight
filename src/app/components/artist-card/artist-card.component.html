@@ -1,0 +1,16 @@
+
+
+<div class="w-72 bg-gradient-to-r from-gray-50 via-gray-100 to-gray-100 rounded animated fadeIn p-2 m-6">
+    <div class="bg-white cursor-pointer">
+      <a target="_blank" (click)="seeArtists(artist)"><img [src]="artist.images[0].url"></a>
+    </div>
+    <div class="text-gray-700 flex flex-col">
+      <span class="font-bold text-lg">{{artist.name}}</span>
+      <p class="text-sm">{{artist.type}}</p>
+      <p class="text-sm">{{artist.popularity}}</p>
+      <p class="text-sm">{{artist.followers?.total | number}}</p>
+    </div>
+    <!-- <ul *ngFor="let x of artist.genres" class="flex flex-row">
+      <li>{{x}}</li>
+    </ul> -->
+  </div>

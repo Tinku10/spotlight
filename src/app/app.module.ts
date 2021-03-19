@@ -15,6 +15,7 @@ import { CardComponent } from './components/card/card.component';
 import { NewReleaseContainerComponent } from './components/new-release-container/new-release-container.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { GetArtistContainerComponent } from './components/get-artist-container/get-artist-container.component';
+import { ArtistCardComponent } from './components/artist-card/artist-card.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { GetArtistContainerComponent } from './components/get-artist-container/g
     DashboardComponent,
     CardComponent,
     NewReleaseContainerComponent,
-    GetArtistContainerComponent
+    GetArtistContainerComponent,
+    ArtistCardComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +36,8 @@ import { GetArtistContainerComponent } from './components/get-artist-container/g
     HttpClientModule,
     RouterModule.forRoot([
       {path: '', component: HomeComponent},
-      {path: 'dashboard', component: DashboardComponent}
+      {path: 'dashboard', component: DashboardComponent},
+      {path: 'dashboard/artist', component: GetArtistContainerComponent}
     ]),
     AuthModule.forRoot({
       domain: 'dev-3qx9j9qj.us.auth0.com',
