@@ -1,11 +1,11 @@
 <div class="w-72 bg-gradient-to-r from-gray-50 via-gray-100 to-gray-100 rounded animated fadeIn p-2 m-6 ">
     <div class="bg-white cursor-pointer">
-      <a target="_blank" (click)="seeDetails(detail)"><img [src]="detail.images[0].url" alt="album art"></a>
+      <a target="_blank" (click)="seeDetails(detail)"><img [src]="detail.images[0].url" alt="album art" class="h-72 object-contain"></a>
 
     </div>
     <div class="text-gray-700 flex flex-col">
       <span class="font-bold text-lg truncate whitespace-nowrap overflow-ellipsis">{{detail.name}}</span>
-      <p class="text-sm truncate whitespace-nowrap overflow-ellipsis">{{detail.release_date}}</p>
+      <p class="text-sm truncate whitespace-nowrap overflow-ellipsis">{{detail.release_date | timeAgo}}</p>
     </div>
       <ul  class="flex flex-wrap">
         <li *ngFor="let y of detail.artists; let i = index" class="truncate whitespace-nowrap overflow-ellipsis">

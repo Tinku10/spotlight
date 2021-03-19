@@ -16,6 +16,7 @@ import { NewReleaseContainerComponent } from './components/new-release-container
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { GetArtistContainerComponent } from './components/get-artist-container/get-artist-container.component';
 import { ArtistCardComponent } from './components/artist-card/artist-card.component';
+import { TimeAgoPipe } from './pipes/time-ago.pipe';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { ArtistCardComponent } from './components/artist-card/artist-card.compon
     CardComponent,
     NewReleaseContainerComponent,
     GetArtistContainerComponent,
-    ArtistCardComponent
+    ArtistCardComponent,
+    TimeAgoPipe
   ],
   imports: [
     BrowserModule,
