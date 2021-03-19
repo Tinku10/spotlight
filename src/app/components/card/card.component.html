@@ -3,9 +3,8 @@
       <a target="_blank" (click)="seeDetails(detail)"><img [src]="detail.images[0].url" alt="album art" class="h-72 object-contain"></a>
 
     </div>
-    <div class="text-gray-700 flex flex-col">
+    <div class="text-gray-700">
       <span class="font-bold text-lg truncate whitespace-nowrap overflow-ellipsis">{{detail.name}}</span>
-      <p class="text-sm truncate whitespace-nowrap overflow-ellipsis">{{detail.release_date | timeAgo}}</p>
     </div>
       <ul  class="flex flex-wrap">
         <li *ngFor="let y of detail.artists; let i = index" class="truncate whitespace-nowrap overflow-ellipsis">
@@ -13,4 +12,5 @@
           <span class="font-medium text-base">{{y.name}}</span>
         </li>
       </ul>
+      <p class="text-sm truncate whitespace-nowrap overflow-ellipsis">{{detail.release_date | timeAgo}}</p>
   </div>
