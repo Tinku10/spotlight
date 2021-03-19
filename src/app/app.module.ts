@@ -7,9 +7,11 @@ import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { RegisterComponent } from './components/register/register.component';
+import {RouterModule} from '@angular/router';
 
 import { AuthModule } from '@auth0/auth0-angular';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { CardComponent } from './components/card/card.component';
 
 @NgModule({
   declarations: [
@@ -18,11 +20,16 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     HomeComponent,
     FooterComponent,
     RegisterComponent,
-    DashboardComponent
+    DashboardComponent,
+    CardComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    RouterModule.forRoot([
+      {path: '', component: HomeComponent},
+      {path: 'dashboard', component: CardComponent}
+    ]),
     AuthModule.forRoot({
       domain: 'dev-3qx9j9qj.us.auth0.com',
       clientId: '0b09YEZyX6r8JxdtvZw7Nx3BiHZYcPM0'

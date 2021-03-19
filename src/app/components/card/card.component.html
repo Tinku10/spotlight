@@ -1,0 +1,16 @@
+<div class="w-64 bg-gradient-to-r from-gray-50 via-gray-100 to-gray-100 rounded-lg animated fadeIn p-2 m-6">
+  <div class="flex flex-col justify-center items-center" *ngFor="let x of items">
+    <div class="bg-white cursor-pointer">
+      <!-- <a target="_blank" (click)="seeDetails(x)"><img [src]="x.images | noimage"></a> -->
+      <img src="https://miro.medium.com/max/820/1*9iAF5V2LxD8Q3hDiPptSOw.jpeg">
+    </div>
+    <div class="text-gray-700 flex flex-col">
+      <span class="font-bold text-lg">{{x.name}}</span>
+      <p class="text-sm">{{x.release_date}}</p>
+    </div>
+    <div class="card-action center">
+      <!-- <div class="chip" *ngFor="let y of x.artists">
+          					{{y.name}}
+          					</div> -->
+    </div>
+  </div>
