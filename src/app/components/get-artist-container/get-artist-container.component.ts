@@ -10,38 +10,41 @@ import { SpotifyService } from 'src/app/services/spotify.service';
 export class GetArtistContainerComponent implements OnInit {
 
   artistId: string;
-  artist: any = {};
-  preloading: boolean = true;
-  topTracks: any[] = [];
+  artist: any = [];
+  //preloading: boolean = true;
+  //topTracks: any[] = [];
 
   constructor(
     private _activatedRoute: ActivatedRoute,
-    private _spotifyService: SpotifyService
-  ) {
-    this._activatedRoute.params.subscribe(params => {
-      this.artistId = params['id'];
-    });
-  }
+    private _spotifyService: SpotifyService) {}
 
   ngOnInit() {
-    this.getArtist();
-    this.getTopTracks();
+    console.log(this.artist)
+    this._spotifyService.getSeveralArtists().subscribe((res) => {
+      console.log(res)
+      this.artist=res;
+      console.log(this.artist);
+    },(err) =>{
+      console.log(err);
+    }
+    );
+    //this.getTopTracks();
   }
 
-  getArtist() {
-    this._spotifyService.getArtistById(this.artistId).subscribe((data: any) => {
-      this.artist = data;
-      console.log(data);
-      this.preloading = false;
-    });
-  }
+  // getArtist() {
+  //   this._spotifyService.getArtistById(this.artistId).subscribe((data: any) => {
+  //     this.artist = data;
+  //     console.log(data);
+  //     this.preloading = false;
+  //   });
+  // }
 
-  getTopTracks() {
-    this._spotifyService.getTopTracks(this.artistId).subscribe((data: any) => {
-      // this.artist=data;
-      console.log(data);
-      this.topTracks = data;
-    });
-  }
+  // getTopTracks() {
+  //   this._spotifyService.getTopTracks(this.artistId).subscribe((data: any) => {
+  //     // this.artist=data;
+  //     console.log(data);
+  //     this.topTracks = data;
+  //   });
+  // }
 
 }
