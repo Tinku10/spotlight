@@ -16,6 +16,7 @@ import { NewReleaseContainerComponent } from './components/new-release-container
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { GetArtistContainerComponent } from './components/get-artist-container/get-artist-container.component';
 import { ArtistCardComponent } from './components/artist-card/artist-card.component';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
@@ -28,14 +29,15 @@ import { ArtistCardComponent } from './components/artist-card/artist-card.compon
     CardComponent,
     NewReleaseContainerComponent,
     GetArtistContainerComponent,
-    ArtistCardComponent
+    ArtistCardComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     RouterModule.forRoot([
-      {path: '', component: HomeComponent},
+      {path: '', component: DashboardComponent},
       {path: 'dashboard', component: DashboardComponent},
       {path: 'dashboard/artist', component: GetArtistContainerComponent}
     ]),
