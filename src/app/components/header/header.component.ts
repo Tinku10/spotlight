@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { SpotifyService } from 'src/app/services/spotify.service';
 
 @Component({
@@ -10,7 +11,10 @@ export class HeaderComponent implements OnInit {
 
   artists: any[] = [];
 
-  constructor(private _spotifyService: SpotifyService) {}
+  @Output() public event = new EventEmitter<String>() ;
+  
+
+  constructor(private _spotifyService: SpotifyService, private router: Router) {}
 
   ngOnInit() {
    // console.log(this.artists)
@@ -19,8 +23,14 @@ export class HeaderComponent implements OnInit {
   searchArtist(txt) {
     this._spotifyService.getArtist(txt).subscribe((data: any) => {
       this.artists = data;
-      console.log(this.artists)
-    });
+      this.event.emit(txt);
+      console.log(this.artists[0]);
+      this.router.navigate(["/dashboard/results"]);
+    }); 
   }
+
+  // sendArtist(){
+  //   this.event.emit(this.artists[0]);
+  // }
 
 }

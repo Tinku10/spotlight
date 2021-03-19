@@ -17,6 +17,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { GetArtistContainerComponent } from './components/get-artist-container/get-artist-container.component';
 import { ArtistCardComponent } from './components/artist-card/artist-card.component';
 import { HeaderComponent } from './components/header/header.component';
+import { SearchResultsComponent } from './components/search-results/search-results.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { HeaderComponent } from './components/header/header.component';
     NewReleaseContainerComponent,
     GetArtistContainerComponent,
     ArtistCardComponent,
-    HeaderComponent
+    HeaderComponent,
+    SearchResultsComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +41,8 @@ import { HeaderComponent } from './components/header/header.component';
     RouterModule.forRoot([
       {path: '', component: DashboardComponent},
       {path: 'dashboard', component: DashboardComponent},
-      {path: 'dashboard/artist', component: GetArtistContainerComponent}
+      {path: 'dashboard/artist', component: GetArtistContainerComponent},
+      {path: 'dashboard/results', component: SearchResultsComponent}
     ]),
     AuthModule.forRoot({
       domain: 'dev-3qx9j9qj.us.auth0.com',
