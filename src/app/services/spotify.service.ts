@@ -11,10 +11,11 @@ export class SpotifyService {
 
   private url: string = 'https://api.spotify.com/v1/';
   private id: any = "2CIMQHirSU0MQqyYHq0eOx,57dN52uHvrHOxijzpIgu3E,1vCWHaC5f2uS3yhpwWbIA6";
+  private artist_id: any = "6eUKZXaKkcviH0Ku9w2n3V";
 
   private headers: HttpHeaders = new HttpHeaders({
     Authorization:
-      'Bearer BQA5EmoY-Cd0ASjJfQT4w9WYwBXCdNxiUKsrxaZJ-M5IFZOxN0EqVLGRrogV9OjfEBTfRatqKzIXstnoj--suasJvae9X7yFxuPsCuwq3ir0SBZO7db0zMR4j3s1HXmD9l93MP0UUb5XzdWJW6HZgvRtaRIrBMs'
+      'Bearer BQD336nQ4rBzQpd7XIg4zSgBiEXi4LCTNZbtc8VeYrgF6PyFSNqv11-QbPHyejqUVmkg03wO6TXHq5Q-EhZoynvuUyeBVcYa2q4pvm-W2qU4tgvE38sAcDwdc24ufXjmjvLQtjzMEWVpeiGw_01xo5hCtTI4VSPjp-zn'
   });
 
   getNewReleases() {
@@ -47,7 +48,7 @@ export class SpotifyService {
   }
 
   getSeveralArtists(){
-    return this._http.get(this.url + 'artists?ids='+this.id, {
+    return this._http.get(this.url + 'artists/'+this.artist_id+'/related-artists', {
       headers: this.headers
     }).pipe(map(data => data['artists']));
   }
