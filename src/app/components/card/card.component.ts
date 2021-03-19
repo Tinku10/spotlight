@@ -8,7 +8,8 @@ import { Router } from '@angular/router';
 })
 export class CardComponent implements OnInit {
 
-@Input() item: any;
+  @Input()
+  detail: any;
 
   constructor(private _router: Router) {}
 

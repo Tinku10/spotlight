@@ -1,14 +1,12 @@
-<div class="w-64 bg-gradient-to-r from-gray-50 via-gray-100 to-gray-100 rounded-lg animated fadeIn p-2 m-6">
+<div class="w-72 bg-gradient-to-r from-gray-50 via-gray-100 to-gray-100 rounded animated fadeIn p-2 m-6">
     <div class="bg-white cursor-pointer">
-      <a target="_blank" (click)="seeDetails(item)"><img [src]="item.images"></a>
+      <a target="_blank" (click)="seeDetails(detail)"><img [src]="detail.images[0].url"></a>
     </div>
     <div class="text-gray-700 flex flex-col">
-      <span class="font-bold text-lg">{{item.name}}</span>
-      <p class="text-sm">{{item.release_date}}</p>
+      <span class="font-bold text-lg">{{detail.name}}</span>
+      <p class="text-sm">{{detail.release_date}}</p>
     </div>
-    <div class="card-action center">
-      <div class="chip" *ngFor="let y of item.artists">
-        {{y.name}}
-      </div>
-    </div>
+    <ul *ngFor="let y of detail.artists" class="flex flex-row">
+      <li>{{y.name}}</li>
+    </ul>
   </div>
