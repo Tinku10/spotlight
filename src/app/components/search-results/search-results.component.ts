@@ -25,17 +25,17 @@ export class SearchResultsComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.artist);
-    //this.getArtist();
-    //this.getTopTracks();
+    //console.log(this.artist);
+    this.getArtist();
+    this.getTopTracks();
   }
 
-  // getArtist() {
-  //   this._spotifyService.getArtistById(this.artistId).subscribe((data: any) => {
-  //     this.artist = data;
-  //     console.log(data);
-  //   });
-  // }
+  getArtist() {
+    this._spotifyService.getArtistById(this.artistId).subscribe((data: any) => {
+      this.artist = data;
+      console.log(this.artist.name);
+    });
+  }
 
   getTopTracks() {
     this._spotifyService.getTopTracks(this.artistId).subscribe((data: any) => {
@@ -45,9 +45,5 @@ export class SearchResultsComponent implements OnInit {
     });
   }
 
-  // receiveArtist($event){
-  //   console.log("Event is working")
-  //   this.artist=$event;
-  // }
 
 }

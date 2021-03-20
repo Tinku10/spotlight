@@ -1,3 +1,35 @@
-<app-header></app-header>
 
-<p>Inside search Results</p>
+<div class="section no-pad-bot valign-wrapper" id="top">
+	<div class="container center ">
+		<h1 class="white-text animated fadeIn ">{{artist.name}}</h1>
+		<br>
+	</div>
+</div>
+
+<div class="container animated fadeIn">
+	<div class="row">
+		<div class="col l4 m6 s12">
+			<img [src]="artist.images[0].url" width="100%">
+		</div>
+		<div class="col l8 m6 s12">
+			<h6>Artist: <span class="light">{{artist.name}}</span></h6>
+			<h6>Type: <span class="light">{{artist.type}}</span></h6>
+			<h6>Popularity: <span class="light">{{artist.popularity}}</span></h6>
+			<h6>Followers: <span class="light">{{artist.followers?.total | number}}</span></h6>
+			<h6>Genres: <div class="chip" *ngFor="let x of artist.genres">{{x}}</div></h6>
+		</div>
+	</div>
+	<div class="row center">
+		<div class="divider"></div>
+		<br>
+		<a href="{{artist.external_urls?.spotify}}" target="_blank">Open in Spotify</a>
+	</div>
+</div>
+
+<br>
+<h1>popular tracks of {{artist.name}}</h1>
+<div *ngFor="let x of topTracks">
+    <img [src]="x.album.images[0].url">
+    <h2>{{x.name}}</h2>
+    <p>{{x.album.release_date | date}}</p>
+</div>

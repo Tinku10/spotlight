@@ -23,20 +23,15 @@ export class HeaderComponent implements OnInit {
   // @Output() public newEvent = new EventEmitter<any>() ;
 
   searchArtist(txt) {
-    //this.newEvent.emit(txt);
     this._spotifyService.getArtist(txt).subscribe((data: any) => {
       this.artists = data;
       console.log("Inside search artist")
-      console.log(this.artists[0])
+      console.log(this.artists[0].id)
       // this.newEvent.emit(txt);
-      this.router.navigate(["/dashboard/results"]);
+      this.router.navigate(["/dashboard/results",this.artists[0].id]);
     }); 
   }
 
-  // sendArtist(){
-  //   console.log("Inside send artist");
-  //   console.log(this.artists);
-  //   this.event.emit(this.artists[0]);
-  // }
+
 
 }

@@ -42,7 +42,7 @@ import { SearchResultsComponent } from './components/search-results/search-resul
       {path: '', component: DashboardComponent},
       {path: 'dashboard', component: DashboardComponent},
       {path: 'dashboard/artist', component: GetArtistContainerComponent},
-      {path: 'dashboard/results', component: SearchResultsComponent}
+      {path: 'dashboard/results/:id', component: SearchResultsComponent}
     ]),
     AuthModule.forRoot({
       domain: 'dev-3qx9j9qj.us.auth0.com',
