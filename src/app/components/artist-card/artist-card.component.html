@@ -8,7 +8,7 @@
       <span class="font-bold text-lg">{{artist.name}}</span>
       <!-- <p class="text-sm">{{artist.type}}</p> -->
       <!-- <p class="text-sm">{{artist.popularity}}</p> -->
-      <p class="text-sm">{{artist.followers?.total | number}} <b>followers</b></p>
+      <p class="text-sm"><b>{{artist.followers?.total | numbeautify:2}}</b> followers</p>
     </div>
     <!-- <ul *ngFor="let x of artist.genres" class="flex flex-row">
       <li>{{x}}</li>

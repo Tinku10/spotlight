@@ -12,15 +12,19 @@ export class PlayerComponent implements OnInit {
 
   constructor(private router: Router, private activated: ActivatedRoute, private spotify: SpotifyService) { }
   info: any;
+  tracks;
 
   ngOnInit(): void {
     this.activated.queryParams.subscribe(params => {
-      console.log(params);
       if(params.type=='artist'){
         this.spotify.getArtistById(params.id).subscribe((res) => {
           this.info = res;
           console.log(this.info);
         });
+        this.spotify.getTopTracks(params.id).subscribe((res) => {
+          this.tracks = res;
+          console.log(this.tracks);
+        })
       }
     });
   }
