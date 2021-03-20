@@ -19,6 +19,8 @@ import { ArtistCardComponent } from './components/artist-card/artist-card.compon
 import { TimeAgoPipe } from './pipes/time-ago.pipe';
 import { DomsafePipe } from './pipes/domsafe.pipe';
 import { PlayerComponent } from './components/player/player.component';
+import { SearchResultsComponent } from './components/search-results/search-results.component';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,9 @@ import { PlayerComponent } from './components/player/player.component';
     ArtistCardComponent,
     TimeAgoPipe,
     DomsafePipe,
-    PlayerComponent
+    PlayerComponent,
+    HeaderComponent,
+    SearchResultsComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +49,8 @@ import { PlayerComponent } from './components/player/player.component';
       {path: 'dashboard', component: DashboardComponent, children: [
       ]},
       { path: 'artist', component: GetArtistContainerComponent },
-      { path: 'dashboard/player', component: PlayerComponent }
+      { path: 'dashboard/player', component: PlayerComponent },
+      {path: 'dashboard/results/:id', component: SearchResultsComponent}
     ]),
     AuthModule.forRoot({
       domain: 'dev-3qx9j9qj.us.auth0.com',
