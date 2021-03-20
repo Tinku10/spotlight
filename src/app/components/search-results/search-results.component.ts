@@ -9,9 +9,9 @@ import { SpotifyService } from 'src/app/services/spotify.service';
 })
 export class SearchResultsComponent implements OnInit {
 
-  public test: string;
   artistId: string;
   topTracks: any[] = [];
+
   public artist: any = {};
 
 
@@ -25,7 +25,7 @@ export class SearchResultsComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.test)
+    console.log(this.artist);
     //this.getArtist();
     //this.getTopTracks();
   }
@@ -46,6 +46,7 @@ export class SearchResultsComponent implements OnInit {
   }
 
   // receiveArtist($event){
+  //   console.log("Event is working")
   //   this.artist=$event;
   // }
 

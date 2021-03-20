@@ -11,7 +11,7 @@ export class HeaderComponent implements OnInit {
 
   artists: any[] = [];
 
-  @Output() public event = new EventEmitter<String>() ;
+  // @Output() public newEvent = new EventEmitter<any>() ;
   
 
   constructor(private _spotifyService: SpotifyService, private router: Router) {}
@@ -20,16 +20,22 @@ export class HeaderComponent implements OnInit {
    // console.log(this.artists)
   }
 
+  // @Output() public newEvent = new EventEmitter<any>() ;
+
   searchArtist(txt) {
+    //this.newEvent.emit(txt);
     this._spotifyService.getArtist(txt).subscribe((data: any) => {
       this.artists = data;
-      this.event.emit(txt);
-      console.log(this.artists[0]);
+      console.log("Inside search artist")
+      console.log(this.artists[0])
+      // this.newEvent.emit(txt);
       this.router.navigate(["/dashboard/results"]);
     }); 
   }
 
   // sendArtist(){
+  //   console.log("Inside send artist");
+  //   console.log(this.artists);
   //   this.event.emit(this.artists[0]);
   // }
 
