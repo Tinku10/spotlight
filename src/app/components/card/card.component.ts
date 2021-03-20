@@ -25,7 +25,7 @@ export class CardComponent implements OnInit {
     }
     console.log(artistId);
 
-    this._router.navigate(['dashboard', 'player'], { queryParams: { q: artistId },   queryParamsHandling: 'merge' } );
+    this._router.navigate(['dashboard', 'results', 'player'], { queryParams: { type: 'artist', id: artistId },   queryParamsHandling: 'merge' } );
   }
 
 }

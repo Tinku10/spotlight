@@ -1,3 +1,4 @@
+import { CompileShallowModuleMetadata } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SpotifyService } from 'src/app/services/spotify.service';
@@ -14,9 +15,13 @@ export class PlayerComponent implements OnInit {
 
   ngOnInit(): void {
     this.activated.queryParams.subscribe(params => {
-      this.spotify.getArtistById(params.q).subscribe((res) => {
-        this.info = res;
-      });
+      console.log(params);
+      if(params.type=='artist'){
+        this.spotify.getArtistById(params.id).subscribe((res) => {
+          this.info = res;
+          console.log(this.info);
+        });
+      }
     });
   }
 
