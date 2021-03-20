@@ -1,0 +1,21 @@
+.wdg{
+    height: 300px;
+    background-color: darkcyan;
+}
+.alg{
+     justify-content: center;
+}
+.szg{
+    /* align-self:center; */
+    font-size: xx-large;
+}
+
+.form-control-borderless {
+    border: none;
+}
+
+.form-control-borderless:hover, .form-control-borderless:active, .form-control-borderless:focus {
+    border: none;
+    outline: none;
+    box-shadow: none;
+}

@@ -21,6 +21,7 @@ import { DomsafePipe } from './pipes/domsafe.pipe';
 import { PlayerComponent } from './components/player/player.component';
 import { SearchResultsComponent } from './components/search-results/search-results.component';
 import { HeaderComponent } from './components/header/header.component';
+import { NoimagePipe } from './pipes/noimage.pipe';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { HeaderComponent } from './components/header/header.component';
     DomsafePipe,
     PlayerComponent,
     HeaderComponent,
-    SearchResultsComponent
+    SearchResultsComponent,
+    NoimagePipe
   ],
   imports: [
     BrowserModule,
@@ -50,7 +52,7 @@ import { HeaderComponent } from './components/header/header.component';
       ]},
       { path: 'artist', component: GetArtistContainerComponent },
       { path: 'dashboard/player', component: PlayerComponent },
-      {path: 'dashboard/results/:id', component: SearchResultsComponent}
+      {path: 'dashboard/results', component: SearchResultsComponent}
     ]),
     AuthModule.forRoot({
       domain: 'dev-3qx9j9qj.us.auth0.com',

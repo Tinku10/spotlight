@@ -15,7 +15,7 @@ export class SpotifyService {
 
   private headers: HttpHeaders = new HttpHeaders({
     Authorization:
-      'Bearer BQDn-jHQIO01B7sWGPo416FJjjIB52WcK3E3WDKWiL79r92hrPkbpFSGbtNq6I4siSrt98j6dQ2VAch_0qa7SHgQx9hgYfFMtgSZcSE8nT2-UXTkNowqV4mUlOm1_x_0VYxCVxSHW6dQBjXYPGLMTYVXOy8Jdkg'
+      'Bearer BQA0GPIIWaLMq5cfDKmrZs2vJrmLF9HFzC61QpdbBtXxftL_1QRp4dpLa04aRgWT7638d4XGrES6SdGDNsFpjZr5ZtnIHgZhEwGU2DnefHSgc-XZwZKnLo6rZAOMY37v6sabKPUBiJWKw2Qj9nUo4KuHF1pdO5xCsOC8'
   });
 
   getNewReleases() {
