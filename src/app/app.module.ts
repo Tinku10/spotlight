@@ -17,6 +17,8 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { GetArtistContainerComponent } from './components/get-artist-container/get-artist-container.component';
 import { ArtistCardComponent } from './components/artist-card/artist-card.component';
 import { TimeAgoPipe } from './pipes/time-ago.pipe';
+import { DomsafePipe } from './pipes/domsafe.pipe';
+import { PlayerComponent } from './components/player/player.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { TimeAgoPipe } from './pipes/time-ago.pipe';
     NewReleaseContainerComponent,
     GetArtistContainerComponent,
     ArtistCardComponent,
-    TimeAgoPipe
+    TimeAgoPipe,
+    DomsafePipe,
+    PlayerComponent
   ],
   imports: [
     BrowserModule,
