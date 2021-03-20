@@ -62,7 +62,7 @@ export class SearchResultsComponent implements OnInit {
       artistId = item.artists[0].id;
     }
     console.log("here")
-    this._router.navigate(['dashboard/player/', artistId]);
+    this._router.navigate(['dashboard/player?q=', artistId]);
   }
 
 }

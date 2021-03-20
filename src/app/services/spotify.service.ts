@@ -15,7 +15,7 @@ export class SpotifyService {
 
   private headers: HttpHeaders = new HttpHeaders({
     Authorization:
-      'Bearer BQA0GPIIWaLMq5cfDKmrZs2vJrmLF9HFzC61QpdbBtXxftL_1QRp4dpLa04aRgWT7638d4XGrES6SdGDNsFpjZr5ZtnIHgZhEwGU2DnefHSgc-XZwZKnLo6rZAOMY37v6sabKPUBiJWKw2Qj9nUo4KuHF1pdO5xCsOC8'
+      'Bearer BQBKbHTUlqE2nlZoSUeoSKoiYwEEu7QZ6nbAUyVkc8JUjW7yzkSzj8I8qTkulG_kR1ATXdw2zSB6edUH_V8nT8mRnikjWxeMxu8bF7xD_vqHoyu8w1nxs8YWDD6T4Ho2CHK7Rnks_Z7vmQkdV7YXxvLdGdmmchzZXfge'
   });
 
   getNewReleases() {
@@ -52,6 +52,9 @@ export class SpotifyService {
       headers: this.headers
     }).pipe(map(data => data['artists']));
   }
+
+  
+
 
 
 
