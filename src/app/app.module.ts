@@ -23,6 +23,9 @@ import { SearchResultsComponent } from './components/search-results/search-resul
 import { HeaderComponent } from './components/header/header.component';
 import { NumbeautifyPipe } from './pipes/numbeautify.pipe';
 import { MusicComponent } from './components/music/music.component';
+import { NoimagePipe } from './pipes/noimage.pipe';
+import { RecommendContainerComponent } from './components/recommend-container/recommend-container.component';
+import { FavoritesContainerComponent } from './components/favorites-container/favorites-container.component';
 
 @NgModule({
   declarations: [
@@ -42,20 +45,25 @@ import { MusicComponent } from './components/music/music.component';
     HeaderComponent,
     SearchResultsComponent,
     NumbeautifyPipe,
-    MusicComponent
+    MusicComponent,
+    NoimagePipe,
+    RecommendContainerComponent,
+    FavoritesContainerComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     RouterModule.forRoot([
-      {path: '', component: HomeComponent},
+       {path: '', component: DashboardComponent},
       {path: 'dashboard', component: DashboardComponent, children: [
       ]},
       { path: 'artist', component: GetArtistContainerComponent },
       { path: 'dashboard/results', component: SearchResultsComponent },
       { path: 'dashboard/results/details', component: PlayerComponent },
-      { path: 'dashboard/player', component: MusicComponent}
+      { path: 'dashboard/player', component: MusicComponent},
+      {path: 'dashboard/recommended', component: RecommendContainerComponent},
+      {path: 'dashboard/favorites', component: FavoritesContainerComponent}
     ]),
     AuthModule.forRoot({
       domain: 'dev-3qx9j9qj.us.auth0.com',

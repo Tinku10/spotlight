@@ -12,10 +12,10 @@
             <a class="nav-link active" aria-current="page" href="">Go Premium</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Favorites</a>
+            <a class="nav-link" routerLink="/dashboard/favorites">Favorites</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link " href="#" tabindex="-1" aria-disabled="false">Recommended</a>
+            <a class="nav-link" routerLink="/dashboard/recommended"  tabindex="-1" aria-disabled="false">Recommended</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -28,8 +28,12 @@
               <li><a class="dropdown-item" href="">Something else here</a></li>
             </ul>
         </ul>
-          <input class="form-control me-2 srch" type="search" placeholder="Search for music" aria-label="Search" (keyup.enter)="searchArtist(inputSearchArtist.value)" #inputSearchArtist>
-          <button class="btn btn-outline-success" type="submit" (click)="searchArtist(inputSearchArtist.value)">Search</button>
+        <div class="cur">
+        <img src="assets/images/search.svg" (click)="clickEvent()" alt="" width="45" height="45" class="m-2">
+        <label class="bag cur">Search songs</label>
+        </div>
+          <!-- <input class="form-control me-2 srch" type="search" placeholder="Search for music" aria-label="Search" (keyup.enter)="searchArtist(inputSearchArtist.value)" #inputSearchArtist> -->
+          <!-- <button class="btn btn-outline-success" type="submit" (click)="searchArtist(inputSearchArtist.value)">Search</button> -->
       </div>
     </div>
   </nav>
