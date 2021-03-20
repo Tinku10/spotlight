@@ -13,9 +13,13 @@ export class SpotifyService {
   private id: any = "2CIMQHirSU0MQqyYHq0eOx,57dN52uHvrHOxijzpIgu3E,1vCWHaC5f2uS3yhpwWbIA6";
   private artist_id: any = "6eUKZXaKkcviH0Ku9w2n3V";
 
+  private artist_id2: any = "66CXWjxzNUsdJxJ2JdwvnR";
+
+  private artist_id3: any = "04gDigrS5kc9YWfZHwBETP";
+
   private headers: HttpHeaders = new HttpHeaders({
     Authorization:
-      'Bearer BQBKbHTUlqE2nlZoSUeoSKoiYwEEu7QZ6nbAUyVkc8JUjW7yzkSzj8I8qTkulG_kR1ATXdw2zSB6edUH_V8nT8mRnikjWxeMxu8bF7xD_vqHoyu8w1nxs8YWDD6T4Ho2CHK7Rnks_Z7vmQkdV7YXxvLdGdmmchzZXfge'
+      'Bearer BQB-j4WN7yN3GZVNev6r8r1U5ZYJiiGbEf9wbKvqIsgn9worxELJv3vVFpZz68WOGA4sZXLpCYyDkhlvTpo-RFzT6OO9WTwuBaoMA9T1sPW4Hs3mcm65ePAFrBo8K3BLRsybjHRkbNcxRlRuPF2haAzekqPav6-LQ0Wn'
   });
 
   getNewReleases() {
@@ -49,6 +53,18 @@ export class SpotifyService {
 
   getSeveralArtists(){
     return this._http.get(this.url + 'artists/'+this.artist_id+'/related-artists', {
+      headers: this.headers
+    }).pipe(map(data => data['artists']));
+  }
+
+  getRecommendedArtists(){
+    return this._http.get(this.url + 'artists/'+this.artist_id2+'/related-artists', {
+      headers: this.headers
+    }).pipe(map(data => data['artists']));
+  }
+
+  getFavoriteArtists(){
+    return this._http.get(this.url + 'artists/'+this.artist_id3+'/related-artists', {
       headers: this.headers
     }).pipe(map(data => data['artists']));
   }

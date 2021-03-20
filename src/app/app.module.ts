@@ -22,6 +22,8 @@ import { PlayerComponent } from './components/player/player.component';
 import { SearchResultsComponent } from './components/search-results/search-results.component';
 import { HeaderComponent } from './components/header/header.component';
 import { NoimagePipe } from './pipes/noimage.pipe';
+import { RecommendContainerComponent } from './components/recommend-container/recommend-container.component';
+import { FavoritesContainerComponent } from './components/favorites-container/favorites-container.component';
 
 @NgModule({
   declarations: [
@@ -40,19 +42,23 @@ import { NoimagePipe } from './pipes/noimage.pipe';
     PlayerComponent,
     HeaderComponent,
     SearchResultsComponent,
-    NoimagePipe
+    NoimagePipe,
+    RecommendContainerComponent,
+    FavoritesContainerComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     RouterModule.forRoot([
-      {path: '', component: HomeComponent},
+       {path: '', component: DashboardComponent},
       {path: 'dashboard', component: DashboardComponent, children: [
       ]},
       { path: 'artist', component: GetArtistContainerComponent },
       { path: 'dashboard/player', component: PlayerComponent },
-      {path: 'dashboard/results', component: SearchResultsComponent}
+      {path: 'dashboard/results', component: SearchResultsComponent},
+      {path: 'dashboard/recommended', component: RecommendContainerComponent},
+      {path: 'dashboard/favorites', component: FavoritesContainerComponent}
     ]),
     AuthModule.forRoot({
       domain: 'dev-3qx9j9qj.us.auth0.com',

@@ -5,10 +5,6 @@
 .alg{
      justify-content: center;
 }
-.szg{
-    /* align-self:center; */
-    font-size: xx-large;
-}
 
 .form-control-borderless {
     border: none;
