@@ -16,25 +16,7 @@ export class ArtistCardComponent implements OnInit {
 
   ngOnInit() {
     console.log(this.artist);
-    //this.getArtist();
-    //this.getTopTracks();
   }
-
-  // getArtist() {
-  //   this._spotifyService.getArtistById(this.artistId).subscribe((data: any) => {
-  //     this.artist = data;
-  //     console.log(data);
-  //     this.preloading = false;
-  //   });
-  // }
-
-  // getTopTracks() {
-  //   this._spotifyService.getTopTracks(this.artistId).subscribe((data: any) => {
-  //     // this.artist=data;
-  //     console.log(data);
-  //     this.topTracks = data;
-  //   });
-  // }
 
   seeArtists(item: any) {
     let artistId;
@@ -44,7 +26,7 @@ export class ArtistCardComponent implements OnInit {
       artistId = item.artists[0].id;
     }
 
-    this._router.navigate(['/artist', artistId]);
+    this._router.navigate(['dashboard', 'results', 'details'], { queryParams: { type: 'artist', id: artistId },   queryParamsHandling: 'merge' } );
   }
 
 }

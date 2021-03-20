@@ -15,7 +15,7 @@ export class SpotifyService {
 
   private headers: HttpHeaders = new HttpHeaders({
     Authorization:
-      'Bearer BQC5pgCHG2eUozW-L7S6C2QizP_7J9Fo9ghXW7DAK43E5-UDkm1Z-biu9zSVfzsrshYbR2EcJoQV2ADIWz03C2cf2rjDrbct6cEQjGEQMHDPzlPX5sceXk5zIPBL393bV87vB5K8p8QU0du9wvOSoR5CSfmQphI'
+      'Bearer BQDiFuNIncXnwALV1fKSAmwajY3aVE2moskJlICUC2zkTh7yHZa9jFJw59MzHd1tks1LLfqomMw21SLc24M-NWpR7O6p_gicTaDFGjGAdJ16yMFPUcJivsqAmU6JymXNmc2w7hC_puUaNsWfF6R-wpItNEI8sbQ'
   });
 
   getNewReleases() {
@@ -53,6 +53,13 @@ export class SpotifyService {
     }).pipe(map(data => data['artists']));
   }
 
+  getTrack(id){
+    return this._http
+      .get(this.url + `albums/${id}/tracks`, {
+        headers: this.headers
+      })
+      .pipe(map(data => data['items']));
 
+  }
 
 }

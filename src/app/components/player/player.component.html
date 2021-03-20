@@ -6,11 +6,27 @@
       <p class="font-extrabold text-5xl m-2 p-2">{{info.name}}</p>
       <p class="text-2xl m-2 p-2"><strong>{{info.followers.total | numbeautify:2}}</strong> followers</p>
       <ul class="flex flex-wrap  text-lg m-2 ">
-        <button class="font-extralight rounded-full whitespace-nowrap text-gray-100 bg-green-400 pl-4 pr-4 pb-2 pt-2 m-2"
+        <button class="font-extralight rounded-full truncate whitespace-nowrap text-gray-100 bg-green-400 pl-4 pr-4 pb-2 pt-2 m-2"
           *ngFor="let item of info.genres">{{item}}</button>
       </ul>
     </div>
   </div>
+
+  <div class="flex flex-wrap m-4 p-2 justify-center items-center cursor-pointer">
+    <div *ngFor="let item of tracks" class="m-4 bg-gray-100 p-2 rounded-sm w-72 hover:shadow-xl" (click)="gotomusic(item.album.id, item.album.name, item.album.images[1].url)">
+      <img [src]="item.album.images[1].url">
+      <div class="flex flex-col">
+        <p class="font-bold text-lg truncate whitespace-nowrap overflow-ellipsis">{{item.album.name}}</p>
+      </div>
+      <ul class="flex flex-row truncate whitespace-nowrap overflow-ellipsis">
+        <li *ngFor="let artist of item.artists; let i=index">
+          <span *ngIf="i%2!=0" class="font-bold m-1">X</span>
+          <span>{{artist.name}}</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+  
   <iframe class="fixed bottom-0"
    title="player" [src]="info.uri | domsafe:'https://open.spotify.com/embed?uri='" width="100%" height="80px" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
 </div>

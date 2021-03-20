@@ -30,5 +30,6 @@ export class NewReleaseContainerComponent implements OnInit {
       }
     );
   }
+  
 
 }

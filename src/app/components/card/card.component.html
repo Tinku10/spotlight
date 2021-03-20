@@ -1,6 +1,6 @@
 <div class="cursor-pointer w-72 bg-gradient-to-r from-gray-50 via-gray-100 to-gray-100 rounded p-2 m-6 hover:shadow-lg">
     <div class="bg-white cursor-pointer">
-      <a target="_blank" (click)="seeDetails(detail)"><img [src]="detail.images[0].url" alt="album art" class="h-72 object-contain"></a>
+      <a target="_blank" (click)="gotoplayer(detail.id, detail.name, detail.images[0].url)"><img [src]="detail.images[0].url" alt="album art" class="h-72 object-contain"></a>
     </div>
     <div class="flex flex-col">
       <span class="text-gray-700 font-bold text-lg truncate whitespace-nowrap overflow-ellipsis">{{detail.name}}</span>

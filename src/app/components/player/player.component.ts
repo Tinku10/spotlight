@@ -29,4 +29,8 @@ export class PlayerComponent implements OnInit {
     });
   }
 
+  gotomusic(url, name, image){
+    this.router.navigate(['dashboard', 'player'], { queryParams: { id: url, name: name, img: image }} );
+  }
+
 }

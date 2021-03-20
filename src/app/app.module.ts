@@ -22,6 +22,7 @@ import { PlayerComponent } from './components/player/player.component';
 import { SearchResultsComponent } from './components/search-results/search-results.component';
 import { HeaderComponent } from './components/header/header.component';
 import { NumbeautifyPipe } from './pipes/numbeautify.pipe';
+import { MusicComponent } from './components/music/music.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { NumbeautifyPipe } from './pipes/numbeautify.pipe';
     PlayerComponent,
     HeaderComponent,
     SearchResultsComponent,
-    NumbeautifyPipe
+    NumbeautifyPipe,
+    MusicComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +54,8 @@ import { NumbeautifyPipe } from './pipes/numbeautify.pipe';
       ]},
       { path: 'artist', component: GetArtistContainerComponent },
       { path: 'dashboard/results', component: SearchResultsComponent },
-      { path: 'dashboard/results/player', component: PlayerComponent }
+      { path: 'dashboard/results/details', component: PlayerComponent },
+      { path: 'dashboard/player', component: MusicComponent}
     ]),
     AuthModule.forRoot({
       domain: 'dev-3qx9j9qj.us.auth0.com',
