@@ -11,6 +11,7 @@ export class RecommendContainerComponent implements OnInit {
 
   artistId: string;
   artist: any = [];
+  message;
   //preloading: boolean = true;
   //topTracks: any[] = [];
 
@@ -21,9 +22,10 @@ export class RecommendContainerComponent implements OnInit {
   ngOnInit() {
     console.log(this.artist)
     this._spotifyService.getRecommendedArtists().subscribe((res) => {
-      console.log(res)
       this.artist=res;
-      console.log(this.artist);
+      if(this.artist.length==0){
+        this.message = 'No results found';
+      }
     },(err) =>{
       console.log(err);
     }

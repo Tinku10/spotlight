@@ -55,7 +55,7 @@ import { FavoritesContainerComponent } from './components/favorites-container/fa
     AppRoutingModule,
     HttpClientModule,
     RouterModule.forRoot([
-       {path: '', component: DashboardComponent},
+       {path: '', redirectTo: '/dashboard', pathMatch: 'full'},
       {path: 'dashboard', component: DashboardComponent, children: [
       ]},
       { path: 'artist', component: GetArtistContainerComponent },

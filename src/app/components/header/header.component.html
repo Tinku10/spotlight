@@ -1,39 +1,13 @@
-
-<nav class="navbar navbar-expand-xl navbar-dark bg-dark kam">
-    <div class="container-fluid">
-        <img src="assets/images/logo.svg" alt="" width="50" height="50" class="m-2">
-      <a class="navbar-brand" href="">Muzix</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="">Go Premium</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/dashboard/favorites">Favorites</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/dashboard/recommended"  tabindex="-1" aria-disabled="false">Recommended</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Downloads
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="">Action</a></li>
-              <li><a class="dropdown-item" href="">Another action</a></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="">Something else here</a></li>
-            </ul>
-        </ul>
-        <div class="cur">
-        <img src="assets/images/search.svg" (click)="clickEvent()" alt="" width="45" height="45" class="m-2">
-        <label class="bag cur">Search songs</label>
-        </div>
-          <!-- <input class="form-control me-2 srch" type="search" placeholder="Search for music" aria-label="Search" (keyup.enter)="searchArtist(inputSearchArtist.value)" #inputSearchArtist> -->
-          <!-- <button class="btn btn-outline-success" type="submit" (click)="searchArtist(inputSearchArtist.value)">Search</button> -->
-      </div>
+<nav class="bg-gray-800 flex flex-row justify-between items-center">
+  <div class="flex flex-row ml-10 mr-4 p-2 items-center">
+    <div class="h-10 w-10 rounded-full mr-4 bg-gray-50"></div>
+    <!-- <img src="assets/images/logo.svg" alt="" width="50" height="50" class="m-2"> -->
+    <a class="font-bold text-xl text-gray-50 hover:text-green-200" href="">Muzix</a>
+  </div>
+  <div class="flex flex-row justify-between items-center">
+    <div class="mr-6 ml-4 cursor-pointer">
+      <img src="assets/images/search.svg" (click)="clickEvent()" alt="" class="h-6 w-6 bg-contain">
     </div>
-  </nav>
+    <div class="ml-2 p-2 h-10 w-10 rounded-full mr-10 bg-gray-50"></div>
+  </div>
+</nav>

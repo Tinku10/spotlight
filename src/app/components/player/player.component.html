@@ -6,8 +6,8 @@
       <p class="font-extrabold text-5xl m-2 p-2">{{info.name}}</p>
       <p class="text-2xl m-2 p-2"><strong>{{info.followers.total | numbeautify:2}}</strong> followers</p>
       <ul class="flex flex-wrap  text-lg m-2 ">
-        <button class="font-extralight rounded-full truncate whitespace-nowrap text-gray-100 bg-green-400 pl-4 pr-4 pb-2 pt-2 m-2"
-          *ngFor="let item of info.genres">{{item}}</button>
+        <button class="font-medium rounded-full truncate whitespace-nowrap text-gray-100 bg-green-400 pl-4 pr-4 pb-1 pt-1 m-2"
+          *ngFor="let item of info.genres">{{item | titlecase}}</button>
       </ul>
     </div>
   </div>
