@@ -42,8 +42,10 @@ import { PlayerComponent } from './components/player/player.component';
     HttpClientModule,
     RouterModule.forRoot([
       {path: '', component: HomeComponent},
-      {path: 'dashboard', component: DashboardComponent},
-      {path: 'dashboard/artist', component: GetArtistContainerComponent}
+      {path: 'dashboard', component: DashboardComponent, children: [
+      ]},
+      { path: 'artist', component: GetArtistContainerComponent },
+      { path: 'dashboard/player', component: PlayerComponent }
     ]),
     AuthModule.forRoot({
       domain: 'dev-3qx9j9qj.us.auth0.com',
