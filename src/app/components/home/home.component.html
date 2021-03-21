@@ -1,14 +1,20 @@
-<nav class="bg-gray-900 p-1">
-  <div class="flex flex-row justify-between items-center">
-    <a href="/" class="flex flex-row ml-20 items-center">
-      <img src="assets/images/logo.svg" alt="" width="40" height="40" class="m-2">
-      <p class="m-2 font-bold text-xl text-white">Muzix</p>
-    </a>
-    <div>
-      <button (click)="authservice.loginWithRedirect()" class="bg-white rounded  border-1 outline-none mr-20 p-2 text-gray-800">Log In</button>
-    </div>
+<nav class="bg-gray-800 flex flex-row justify-between items-center">
+  <div class="flex flex-row ml-10 mr-4 p-2 items-center">
+    <div class="h-10 w-10 rounded-full mr-4 bg-gray-50"></div>
+    <!-- <img src="assets/images/logo.svg" alt="" width="50" height="50" class="m-2"> -->
+    <a class="font-bold text-xl text-gray-50 hover:text-green-200" [routerLink]="['/dashboard']" routerLinkActive="router-link-active" >Muzix</a>
   </div>
-</nav>
+  <ng-container *ngIf="auth.isAuthenticated$ | async; else loggedOut">
+    <button (click)="auth.logout({ returnTo: '/dashboard' })" class="text-white">
+      Log out
+    </button>
+  </ng-container>
+  
+  <ng-template #loggedOut>
+    <button (click)="auth.loginWithRedirect()" class="text-white">Log in</button>
+  </ng-template>
+  
+  </nav>
 
 <!-- Body -->
 
@@ -19,7 +25,7 @@
   <h2 class="p-2 mt-6 font-extrabold text-gray-600 text-6xl">Looking for music ?</h2>
   <p class="text-2xl">Play millions of songs, <em class="text-green-400 font-bold">for free</em></p>
   <p class="text-2xl">Start listening to the best new releases now.</p>
-  <button (click)="authservice.loginWithRedirect()" class="bg-green-400 rounded-full  border-1 outline-none p-3 text-gray-50 hover:bg-white hover:text-green-400 hover:border-green-400 ">LOGIN TO LAUNCH WEB PLAYER</button>
+  <button (click)="auth.loginWithRedirect()" class="bg-green-400 rounded-full  border-1 outline-none p-3 text-gray-50 hover:bg-white hover:text-green-400 hover:border-green-400 ">LOGIN TO LAUNCH WEB PLAYER</button>
 </div>
 
 <app-footer></app-footer>

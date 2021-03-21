@@ -9,7 +9,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { RegisterComponent } from './components/register/register.component';
 import {RouterModule} from '@angular/router';
 
-import { AuthModule } from '@auth0/auth0-angular';
+import { AuthGuard, AuthModule } from '@auth0/auth0-angular';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { CardComponent } from './components/card/card.component';
 import { NewReleaseContainerComponent } from './components/new-release-container/new-release-container.component';
@@ -55,15 +55,14 @@ import { FavoritesContainerComponent } from './components/favorites-container/fa
     AppRoutingModule,
     HttpClientModule,
     RouterModule.forRoot([
-       {path: '', redirectTo: '/dashboard', pathMatch: 'full'},
-      {path: 'dashboard', component: DashboardComponent, children: [
-      ]},
+      { path: '', component: HomeComponent },
+      { path: 'dashboard', component: DashboardComponent},
       { path: 'artist', component: GetArtistContainerComponent },
-      { path: 'dashboard/results', component: SearchResultsComponent },
-      { path: 'dashboard/results/details', component: PlayerComponent },
-      { path: 'dashboard/player', component: MusicComponent},
-      {path: 'dashboard/recommended', component: RecommendContainerComponent},
-      {path: 'dashboard/favorites', component: FavoritesContainerComponent}
+      { path: 'dashboard/results', component: SearchResultsComponent, canActivate: [AuthGuard] },
+      { path: 'dashboard/results/details', component: PlayerComponent , canActivate: [AuthGuard] },
+      { path: 'dashboard/player', component: MusicComponent , canActivate: [AuthGuard] },
+      { path: 'dashboard/recommended', component: RecommendContainerComponent , canActivate: [AuthGuard] },
+      { path: 'dashboard/favorites', component: FavoritesContainerComponent , canActivate: [AuthGuard] }
     ]),
     AuthModule.forRoot({
       domain: 'dev-3qx9j9qj.us.auth0.com',

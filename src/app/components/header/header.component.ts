@@ -1,6 +1,8 @@
 import { Router } from '@angular/router';
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Inject } from '@angular/core';
 import { SpotifyService } from 'src/app/services/spotify.service';
+import { AuthService } from '@auth0/auth0-angular';
+import { DOCUMENT } from '@angular/common';
 
 @Component({
   selector: 'app-header',
@@ -10,27 +12,16 @@ import { SpotifyService } from 'src/app/services/spotify.service';
 export class HeaderComponent implements OnInit {
 
   artists: any[] = [];
+  show = false;
 
   // @Output() public newEvent = new EventEmitter<any>() ;
   
 
-  constructor(private _spotifyService: SpotifyService, private router: Router) {}
+  constructor(private _spotifyService: SpotifyService, private router: Router, @Inject(DOCUMENT) public document: Document, public auth: AuthService) {}
+
 
   ngOnInit() {
-   // console.log(this.artists)
   }
-
-  // @Output() public newEvent = new EventEmitter<any>() ;
-
-  // searchArtist(txt) {
-  //   this._spotifyService.getArtist(txt).subscribe((data: any) => {
-  //     this.artists = data;
-  //     console.log("Inside search artist")
-  //     console.log(this.artists[0].id)
-  //     // this.newEvent.emit(txt);
-  //     this.router.navigate(["/dashboard/results",this.artists[0].id]);
-  //   }); 
-  // }
 
   clickEvent(){
     this.router.navigate(["/dashboard/results"]);
