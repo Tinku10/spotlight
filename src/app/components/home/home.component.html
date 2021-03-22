@@ -1,0 +1,23 @@
+<nav class="bg-gray-800 flex flex-row justify-between items-center">
+  <div class="flex flex-row ml-10 mr-4 p-2 items-center">
+    <div class="h-10 w-10 rounded-full mr-4 bg-gray-50 bg-opacity-0">
+      <img src="assets/images/musix-logo.svg" alt="">
+    </div>
+    <a class="font-bold text-xl text-gray-50 hover:text-green-200" [routerLink]="['/dashboard']" routerLinkActive="router-link-active" >Muzix</a>
+  </div>
+  <button *ngIf="!isAuth" (click)="auth.loginWithRedirect()" class="text-gray-50 mr-10 text-sm font-medium">Log in</button>
+  </nav>
+
+<!-- Body -->
+
+<div class="albums-content flex flex-col items-center justify-center">
+  <div class="rounded-full h-64 w-64 shadow-2xl">
+    <img src="assets/images/musix-logo.svg" alt="">
+  </div>
+  <h2 class="p-2 mt-6 font-extrabold text-gray-600 text-6xl">Looking for music ?</h2>
+  <p class="text-2xl">Play millions of songs, <em class="text-green-400 font-bold">for free</em></p>
+  <p class="text-2xl">Start listening to the best new releases now.</p>
+  <button (click)="auth.loginWithRedirect()" class="bg-green-400 rounded-full  border-1 outline-none p-3 text-gray-50 hover:bg-white hover:text-green-400 hover:border-green-400 ">LOGIN TO LAUNCH WEB PLAYER</button>
+</div>
+
+<app-footer></app-footer>
