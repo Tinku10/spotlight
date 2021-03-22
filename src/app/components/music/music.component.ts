@@ -21,8 +21,8 @@ export class MusicComponent implements OnInit {
       this.img = params.img;
         this.spotify.getTrack(params.id).subscribe((res) => {
           this.info = res;
-          console.log(res);
-          console.log(this.name);
+          //console.log(res);
+          //console.log(this.name);
         });
     });
   }

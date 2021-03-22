@@ -19,13 +19,13 @@ export class GetArtistContainerComponent implements OnInit {
     private _spotifyService: SpotifyService) {}
 
   ngOnInit() {
-    console.log(this.artist)
+    //console.log(this.artist)
     this._spotifyService.getSeveralArtists().subscribe((res) => {
-      console.log(res)
+      //console.log(res)
       this.artist=res;
-      console.log(this.artist);
+      //console.log(this.artist);
     },(err) =>{
-      console.log(err);
+      //console.log(err);
     }
     );
     //this.getTopTracks();
@@ -34,7 +34,7 @@ export class GetArtistContainerComponent implements OnInit {
   // getArtist() {
   //   this._spotifyService.getArtistById(this.artistId).subscribe((data: any) => {
   //     this.artist = data;
-  //     console.log(data);
+  //     //console.log(data);
   //     this.preloading = false;
   //   });
   // }
@@ -42,7 +42,7 @@ export class GetArtistContainerComponent implements OnInit {
   // getTopTracks() {
   //   this._spotifyService.getTopTracks(this.artistId).subscribe((data: any) => {
   //     // this.artist=data;
-  //     console.log(data);
+  //     //console.log(data);
   //     this.topTracks = data;
   //   });
   // }

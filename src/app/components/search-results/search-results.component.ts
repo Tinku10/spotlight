@@ -40,9 +40,9 @@ export class SearchResultsComponent implements OnInit {
   }
 
   searchArtist(txt) {
-    console.log(txt)
+    //console.log(txt)
     this._spotifyService.getArtist(txt).subscribe((data: any) => {
-      console.log(data)
+      //console.log(data)
       this.artists = data;
     });
   }
@@ -54,7 +54,7 @@ export class SearchResultsComponent implements OnInit {
     } else {
       artistId = item.artists[0].id;
     }
-    console.log("here")
+    //console.log("here")
     this._router.navigate(['dashboard/player?q=', artistId]);
   }
 

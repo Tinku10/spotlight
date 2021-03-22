@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Chrome, Safari and Opera */
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
