@@ -15,7 +15,7 @@ export class HomeComponent implements OnInit {
   constructor(public auth: AuthService, @Inject(DOCUMENT) public document: Document, private router: Router) { }
 
   ngOnInit(): void {
-    //console.log(this.auth.isAuthenticated$.subscribe(res => {
+    console.log(this.auth.isAuthenticated$.subscribe(res => {
       if (res) {
         this.router.navigate(['dashboard']);
         this.isAuth = true;
