@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AuthService } from '@auth0/auth0-angular';
 import { SpotifyService } from 'src/app/services/spotify.service';
 
 @Component({
@@ -13,38 +14,30 @@ export class SearchResultsComponent implements OnInit {
   //topTracks: any[] = [];
 
   public artists: any = [];
+  public show = false;
+  name: String;
+  photo: String;
 
 
   constructor(
     //private _activatedRoute: ActivatedRoute,
     private _router: Router,
-    private _spotifyService: SpotifyService
+    private _spotifyService: SpotifyService,
+    public auth: AuthService
   ) {
     // this._activatedRoute.params.subscribe(params => {
     //   this.artistId = params['id'];
     // });
   }
 
-  ngOnInit() {
-    //console.log(this.artist);
-    //this.getArtist();
-    //this.getTopTracks();
+
+
+  ngOnInit(): void {
+    this.auth.user$.subscribe(res => {
+      this.name = res.name;
+      this.photo = res.picture;
+    })
   }
-
-  // getArtist() {
-  //   this._spotifyService.getArtistById(this.artistId).subscribe((data: any) => {
-  //     this.artist = data;
-  //     console.log(this.artist.name);
-  //   });
-  // }
-
-  // getTopTracks() {
-  //   this._spotifyService.getTopTracks(this.artistId).subscribe((data: any) => {
-  //     // this.artist=data;
-  //     console.log(data);
-  //     this.topTracks = data;
-  //   });
-  // }
 
   searchArtist(txt) {
     console.log(txt)

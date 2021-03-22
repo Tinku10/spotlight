@@ -20,13 +20,21 @@ export class HeaderComponent implements OnInit {
   constructor(private _spotifyService: SpotifyService, private router: Router, @Inject(DOCUMENT) public document: Document, public auth: AuthService) {}
 
 
-  ngOnInit() {
-  }
 
   clickEvent(){
     this.router.navigate(["/dashboard/results"]);
   }
 
+  name: String;
+  photo: String;
+
+
+  ngOnInit(): void {
+    this.auth.user$.subscribe(res => {
+      this.name = res.name;
+      this.photo = res.picture;
+    })
+  }
   
 
 

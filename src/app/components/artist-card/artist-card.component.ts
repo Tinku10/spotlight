@@ -15,7 +15,6 @@ export class ArtistCardComponent implements OnInit {
   constructor(private _router: Router) {}
 
   ngOnInit() {
-    console.log(this.artist);
   }
 
   seeArtists(item: any) {

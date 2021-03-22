@@ -10,12 +10,17 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
+  isAuth = false;
+
   constructor(public auth: AuthService, @Inject(DOCUMENT) public document: Document, private router: Router) { }
 
   ngOnInit(): void {
-    // if(this.auth.isAuthenticated$){
-    //   this.router.navigate(['dashboard']);
-    // }
+    console.log(this.auth.isAuthenticated$.subscribe(res => {
+      if (res) {
+        this.router.navigate(['dashboard']);
+        this.isAuth = true;
+      }
+    }));
   }
 
 }

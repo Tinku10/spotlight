@@ -23,7 +23,6 @@ export class CardComponent implements OnInit {
     } else {
       artistId = item.artists[0].id;
     }
-    console.log(artistId);
 
     this._router.navigate(['dashboard', 'results', 'details'], { queryParams: { type: 'artist', id: artistId },   queryParamsHandling: 'merge' } );
   }

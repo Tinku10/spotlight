@@ -5,7 +5,7 @@
     </div>
     <a class="font-bold text-xl text-gray-50 hover:text-green-200" [routerLink]="['/dashboard']" routerLinkActive="router-link-active" >Muzix</a>
   </div>
-  <button (click)="auth.loginWithRedirect()" class="text-gray-50 mr-10 text-sm font-medium">Log in</button>
+  <button *ngIf="!isAuth" (click)="auth.loginWithRedirect()" class="text-gray-50 mr-10 text-sm font-medium">Log in</button>
   </nav>
 
 <!-- Body -->

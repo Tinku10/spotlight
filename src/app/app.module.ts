@@ -56,8 +56,8 @@ import { FavoritesContainerComponent } from './components/favorites-container/fa
     HttpClientModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent },
-      { path: 'dashboard', component: DashboardComponent},
-      { path: 'artist', component: GetArtistContainerComponent },
+      { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard]},
+      { path: 'artist', component: GetArtistContainerComponent , canActivate: [AuthGuard]},
       { path: 'dashboard/results', component: SearchResultsComponent, canActivate: [AuthGuard] },
       { path: 'dashboard/results/details', component: PlayerComponent , canActivate: [AuthGuard] },
       { path: 'dashboard/player', component: MusicComponent , canActivate: [AuthGuard] },
