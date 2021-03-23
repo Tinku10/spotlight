@@ -31,4 +31,7 @@ export class CardComponent implements OnInit {
     this._router.navigate(['dashboard', 'player'], { queryParams: { id: url, name: name, img: image },   queryParamsHandling: 'merge' })
   }
 
+  alterFavourites(){
+  }
+
 }
