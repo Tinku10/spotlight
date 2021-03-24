@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '@auth0/auth0-angular';
 import { FavouritesService } from 'src/app/services/favourites.service';
@@ -8,7 +8,7 @@ import { FavouritesService } from 'src/app/services/favourites.service';
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.css']
 })
-export class CardComponent implements OnInit {
+export class CardComponent implements OnInit, OnChanges {
 
   @Input()
   detail: any;
@@ -16,18 +16,22 @@ export class CardComponent implements OnInit {
 
   constructor(private _router: Router, private fav: FavouritesService, private auth: AuthService) {}
 
-  isLiked: boolean = false;
+  isLiked;
   
   ngOnInit() {
 
     this.auth.user$.subscribe(res => {
-      console.log(res);
       this.userId = res.email;
       this.fav.checkFavourites(this.detail.id, this.userId).subscribe(resp => {
-        console.log(resp);
-        this.isLiked = resp.body;
+        this.isLiked = resp;
       })
     })
+    }
+
+    ngOnChanges(){
+      this.fav.checkFavourites(this.detail.id, this.userId).subscribe(resp => {
+        this.isLiked = resp;
+      })
     }
 
   seeDetails(item: any) {
@@ -47,8 +51,11 @@ export class CardComponent implements OnInit {
   }
 
   alterFav(){
+    this.fav.checkFavourites(this.detail.id, this.userId).subscribe(resp => {
+      this.isLiked = !resp;
+      console.log(resp);
+    })
     let newOb = {
-      "id": 1,
       "albumId": this.detail.id,
       "name": this.detail.name,
       "image": this.detail.images[0].url,

@@ -18,6 +18,6 @@ export class FavouritesService {
   }
 
   checkFavourites(albumId, userId){
-    return this.http.get('http://localhost:4000/check?albumId=' + albumId + '&userId='+userId).pipe(map(data => data['favourite']));
+    return this.http.get('http://localhost:4000/check?albumId=' + albumId + '&userId='+userId).pipe(map(data => data));
   }
 }
