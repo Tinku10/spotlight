@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from '@auth0/auth0-angular';
+import { FavouritesService } from 'src/app/services/favourites.service';
 
 @Component({
   selector: 'app-card',
@@ -10,10 +12,23 @@ export class CardComponent implements OnInit {
 
   @Input()
   detail: any;
+  userId: String;
 
-  constructor(private _router: Router) {}
+  constructor(private _router: Router, private fav: FavouritesService, private auth: AuthService) {}
 
-  ngOnInit() {}
+  isLiked: boolean = false;
+  
+  ngOnInit() {
+
+    this.auth.user$.subscribe(res => {
+      console.log(res);
+      this.userId = res.email;
+      this.fav.checkFavourites(this.detail.id, this.userId).subscribe(resp => {
+        console.log(resp);
+        this.isLiked = resp.body;
+      })
+    })
+    }
 
   seeDetails(item: any) {
     let artistId;
@@ -31,7 +46,20 @@ export class CardComponent implements OnInit {
     this._router.navigate(['dashboard', 'player'], { queryParams: { id: url, name: name, img: image },   queryParamsHandling: 'merge' })
   }
 
-  alterFavourites(){
+  alterFav(){
+    let newOb = {
+      "id": 1,
+      "albumId": this.detail.id,
+      "name": this.detail.name,
+      "image": this.detail.images[0].url,
+      "userId": this.userId,
+      // "artists": this.detail.artists
+    }
+    console.log(newOb);
+    this.fav.postFavourites(newOb).subscribe(res => {
+      console.log(res);
+    });
   }
+
 
 }

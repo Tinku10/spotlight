@@ -15,7 +15,7 @@
         </ul>
         <p class="text-sm truncate whitespace-nowrap overflow-ellipsis">{{detail.release_date | timeAgo}}</p>
       </div>
-      <img src="../../assets/images/heart.svg" class="bg-contain h-8 w-8 m-2 p-2">
-      <img src="../../assets/images/heart-blank.svg" class="bg-contain h-8 w-8 m-2 p-2" >
+      <img src="../../assets/images/heart.svg" class="bg-contain h-8 w-8 m-2 p-2" *ngIf="isLiked" (click)="alterFav()">
+      <img src="../../assets/images/heart-blank.svg" class="bg-contain h-8 w-8 m-2 p-2" *ngIf="!isLiked" (click)="alterFav()">
       </div>
     </div>
