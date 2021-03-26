@@ -11,6 +11,7 @@ import { SpotifyService } from 'src/app/services/spotify.service';
 })
 export class FavoritesContainerComponent implements OnInit {
 
+  
   artistId: string;
   artist: any = [];
 
@@ -27,7 +28,7 @@ export class FavoritesContainerComponent implements OnInit {
   ngOnInit() {
     this.auth.user$.subscribe(res=> {
       this.userId=res.email;
-      this.fav.fetchFavourites(this.userId).subscribe(res=>{
+      this.fav.getFavorites().subscribe(res=>{
         this.artist=res;
         console.log(this.artist);
       });
