@@ -2,6 +2,9 @@
     <div class="flex flex-col">
       <h1 class="font-extrabold text-2xl p-6">Favorites</h1>
       <div class="flex flex-row overflow-scroll bg-scroll no-scrollbar">
+        <div *ngIf="artist.length==0" class="flex flex-col items-center justify-center p-2 m-2 w-screen">
+          <p class="font-normal text-xl">No favourites till now</p>
+        </div>
         <ul *ngFor="let item of artist">
           <app-favcard [item]="item"></app-favcard>
           <!-- <app-newcard [item]="item"></app-newcard> -->
