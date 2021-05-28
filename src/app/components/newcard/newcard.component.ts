@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '@auth0/auth0-angular';
-import { FavouritesService } from '../services/favourites.service';
+import { FavouritesService } from '../../services/favourites.service';
 
 @Component({
   selector: 'app-newcard',
