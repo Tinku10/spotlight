@@ -19,7 +19,7 @@ export class SpotifyService {
 
   private headers: HttpHeaders = new HttpHeaders({
     Authorization:
-      'Bearer BQATe7sbPhIZ9Awow-fwyRNG4U5jj9bfbZnI7LSnzNNXpPI6MZ0g8Orcq-5fu3sGPyqlVMMEHkJWVI94sCI9ibRwLybuHxwQ3Rdp3P6gtdW_syWRvrSRBN8_Zd7pNHLOF-9HmXQFRVtgFwJMhEIAAs-BhSQIvofHi2C3'
+      `Bearer ${localStorage.getItem('token')}`
   });
 
   getNewReleases() {
