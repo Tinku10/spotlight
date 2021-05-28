@@ -2,14 +2,20 @@
     <div class="bg-white cursor-pointer">
       <a target="_blank" (click)="gotoplayer(detail.id, detail.name, detail.images[0].url)"><img [src]="detail.images[0].url" alt="album art" class="h-72 object-contain"></a>
     </div>
-    <div class="flex flex-col">
-      <span class="text-gray-700 font-bold text-lg truncate whitespace-nowrap overflow-ellipsis">{{detail.name}}</span>
+    <div class="flex flex-row justify-between items-end w-72">
+      <div class="flex flex-col w-56">
+        <div class="flex flex-col">
+          <span class="text-gray-700 font-bold text-lg truncate whitespace-nowrap overflow-ellipsis">{{detail.name}}</span>
+        </div>
+        <ul class="flex flex-row w-60 overflow-ellipsis">
+          <li *ngFor="let y of detail.artists; let i = index" class="truncate whitespace-nowrap overflow-ellipsis">
+            <span *ngIf="i%2!=0" class="p-2 font-extrabold text-sm"> X </span>
+            <span class="font-medium text-base">{{y.name}}</span>
+          </li>
+        </ul>
+        <p class="text-sm truncate whitespace-nowrap overflow-ellipsis">{{detail.release_date | timeAgo}}</p>
+      </div>
+      <img src="../../assets/images/heart.svg" class="bg-contain h-8 w-8 m-2 p-2" *ngIf="isLiked" (click)="alterFav()">
+      <img src="../../assets/images/heart-blank.svg" class="bg-contain h-8 w-8 m-2 p-2" *ngIf="!isLiked" (click)="alterFav()">
+      </div>
     </div>
-      <ul class="flex flex-row ">
-        <li *ngFor="let y of detail.artists; let i = index" class="truncate whitespace-nowrap overflow-ellipsis">
-          <span *ngIf="i%2!=0" class="p-2 font-extrabold text-sm"> X </span>
-          <span class="font-medium text-base">{{y.name}}</span>
-        </li>
-      </ul>
-      <p class="text-sm truncate whitespace-nowrap overflow-ellipsis">{{detail.release_date | timeAgo}}</p>
-  </div>

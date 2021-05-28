@@ -19,11 +19,16 @@ export class GetArtistContainerComponent implements OnInit {
     private _spotifyService: SpotifyService) {}
 
   ngOnInit() {
+<<<<<<< HEAD
     //console.log(this.artist)
     this._spotifyService.getSeveralArtists().subscribe((res) => {
       //console.log(res)
       this.artist=res;
       //console.log(this.artist);
+=======
+    this._spotifyService.getSeveralArtists().subscribe((res) => {
+      this.artist=res;
+>>>>>>> 37e1c735e98e11471a6cd999bf2ff202cf4ad32c
     },(err) =>{
       //console.log(err);
     }

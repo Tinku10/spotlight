@@ -20,7 +20,10 @@ export class RecommendContainerComponent implements OnInit {
     private _spotifyService: SpotifyService) {}
 
   ngOnInit() {
+<<<<<<< HEAD
     //console.log(this.artist)
+=======
+>>>>>>> 37e1c735e98e11471a6cd999bf2ff202cf4ad32c
     this._spotifyService.getRecommendedArtists().subscribe((res) => {
       this.artist=res;
       if(this.artist.length==0){

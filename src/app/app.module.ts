@@ -26,6 +26,8 @@ import { MusicComponent } from './components/music/music.component';
 import { NoimagePipe } from './pipes/noimage.pipe';
 import { RecommendContainerComponent } from './components/recommend-container/recommend-container.component';
 import { FavoritesContainerComponent } from './components/favorites-container/favorites-container.component';
+import { NewcardComponent } from './newcard/newcard.component';
+import { FavcardComponent } from './favcard/favcard.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +50,9 @@ import { FavoritesContainerComponent } from './components/favorites-container/fa
     MusicComponent,
     NoimagePipe,
     RecommendContainerComponent,
-    FavoritesContainerComponent
+    FavoritesContainerComponent,
+    NewcardComponent,
+    FavcardComponent
   ],
   imports: [
     BrowserModule,

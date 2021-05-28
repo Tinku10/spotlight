@@ -1,0 +1,16 @@
+<img [src]="item.album.images[1].url" (click)="gotoplayer(item.album.id, item.album.name, item.album.images[1].url)">
+<div class="flex flex-row justify-between items-end w-72">
+  <div class="flex flex-col">
+    <div class="flex flex-col">
+      <p class="font-bold text-lg truncate whitespace-nowrap overflow-ellipsis">{{item.album.name}}</p>
+    </div>
+    <ul class="flex flex-row truncate whitespace-nowrap overflow-ellipsis">
+      <li *ngFor="let artist of item.artists; let i=index">
+        <span *ngIf="i%2!=0" class="font-bold m-1">X</span>
+        <span>{{artist.name}}</span>
+      </li>
+    </ul>
+  </div>
+  <img src="../../assets/images/heart.svg" class="bg-contain h-8 w-8 m-2 p-2" *ngIf="isLiked" (click)="alterFav()">
+  <img src="../../assets/images/heart-blank.svg" class="bg-contain h-8 w-8 m-2 p-2" *ngIf="!isLiked" (click)="alterFav()">
+</div>

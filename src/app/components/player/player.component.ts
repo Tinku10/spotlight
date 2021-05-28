@@ -1,6 +1,8 @@
+import { AuthService } from '@auth0/auth0-angular';
 import { CompileShallowModuleMetadata } from '@angular/compiler';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { FavouritesService } from 'src/app/services/favourites.service';
 import { SpotifyService } from 'src/app/services/spotify.service';
 
 @Component({
@@ -10,9 +12,15 @@ import { SpotifyService } from 'src/app/services/spotify.service';
 })
 export class PlayerComponent implements OnInit {
 
-  constructor(private router: Router, private activated: ActivatedRoute, private spotify: SpotifyService) { }
+  @Input()
+  item: any;
+  userId: String;
+
+  constructor(private router: Router, private activated: ActivatedRoute, private spotify: SpotifyService, private fav: FavouritesService, private auth: AuthService) { }
   info: any;
   tracks;
+
+  isLiked;
 
   ngOnInit(): void {
     this.activated.queryParams.subscribe(params => {
@@ -27,10 +35,37 @@ export class PlayerComponent implements OnInit {
         })
       }
     });
+
+    // this.auth.user$.subscribe(res => {
+    //   this.userId = res.email;
+    //   this.fav.checkFavourites(this.tracks.id, this.userId).subscribe(resp => {
+    //     this.isLiked = resp;
+    //   })
+    // })
   }
 
-  gotomusic(url, name, image){
-    this.router.navigate(['dashboard', 'player'], { queryParams: { id: url, name: name, img: image }} );
-  }
+  // alterFav(){
+  //   this.fav.checkFavourites(this.tracks.id, this.userId).subscribe(resp => {
+  //     this.isLiked = !resp;
+  //     console.log(resp);
+  //   })
+  //   let newOb = {
+  //     "albumId": this.tracks.id,
+  //     "name": this.tracks.name,
+  //     "image": this.tracks.images[0].url,
+  //     "userId": this.userId,
+  //     // "artists": this.detail.artists
+  //   }
+  //   console.log(newOb);
+  //   this.fav.postFavourites(newOb).subscribe(res => {
+  //     console.log(res);
+  //   });
+  
+
+
+
+  // gotomusic(url, name, image){
+  //   this.router.navigate(['dashboard', 'player'], { queryParams: { id: url, name: name, img: image }} );
+  // }
 
 }

@@ -1,17 +1,17 @@
-import { Component, Input, OnChanges, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '@auth0/auth0-angular';
-import { FavouritesService } from 'src/app/services/favourites.service';
+import { FavouritesService } from '../services/favourites.service';
 
 @Component({
-  selector: 'app-card',
-  templateUrl: './card.component.html',
-  styleUrls: ['./card.component.css']
+  selector: 'app-favcard',
+  templateUrl: './favcard.component.html',
+  styleUrls: ['./favcard.component.css']
 })
-export class CardComponent implements OnInit, OnChanges {
+export class FavcardComponent implements OnInit {
 
   @Input()
-  detail: any;
+  item: any;
   userId: String;
 
   constructor(private _router: Router, private fav: FavouritesService, private auth: AuthService) {}
@@ -22,28 +22,28 @@ export class CardComponent implements OnInit, OnChanges {
 
     this.auth.user$.subscribe(res => {
       this.userId = res.email;
-      this.fav.checkFavourites(this.detail.id, this.userId).subscribe(resp => {
+      this.fav.checkFavourites(this.item.albumId, this.userId).subscribe(resp => {
         this.isLiked = resp;
       })
     })
     }
 
     ngOnChanges(){
-      this.fav.checkFavourites(this.detail.id, this.userId).subscribe(resp => {
+      this.fav.checkFavourites(this.item.albumId, this.userId).subscribe(resp => {
         this.isLiked = resp;
       })
     }
 
-  seeDetails(item: any) {
+  seeitems(item: any) {
     let artistId;
 
     if (item.type === 'artist') {
-      artistId = item.id;
+      artistId = item.albumId;
     } else {
-      artistId = item.artists[0].id;
+      artistId = item.artists[0].albumId;
     }
 
-    this._router.navigate(['dashboard', 'results', 'details'], { queryParams: { type: 'artist', id: artistId },   queryParamsHandling: 'merge' } );
+    this._router.navigate(['dashboard', 'results', 'items'], { queryParams: { type: 'artist', id: artistId },   queryParamsHandling: 'merge' } );
   }
 
   gotoplayer(url, name, image){
@@ -51,22 +51,21 @@ export class CardComponent implements OnInit, OnChanges {
   }
 
   alterFav(){
-    this.fav.checkFavourites(this.detail.id, this.userId).subscribe(resp => {
+    this.fav.checkFavourites(this.item.albumId, this.userId).subscribe(resp => {
       this.isLiked = !resp;
       console.log(resp);
     })
     let newOb = {
-      "albumId": this.detail.id,
-      "name": this.detail.name,
-      "image": this.detail.images[0].url,
+      "albumId": this.item.albumId,
+      "name": this.item.name,
+      "image": this.item.image,
       "userId": this.userId,
-      // "artists": this.detail.artists
+      // "artists": this.item.artists
     }
     console.log(newOb);
     this.fav.postFavourites(newOb).subscribe(res => {
       console.log(res);
     });
   }
-
 
 }
